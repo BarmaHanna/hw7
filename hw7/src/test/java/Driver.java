@@ -7,14 +7,16 @@ public class Driver {
             System.setProperty("webdriver.chrome.driver", "C:\\ChromeDriver\\chromedriver.exe");
             ChromeDriver driver = new ChromeDriver();
             driver.get("https://onliner.by");
-            driver.findElement(By.xpath("//span[text()='Пылесосы']")).click();
+            driver.findElement(By.xpath("//span[text()='Автобарахолка']")).click();
             ((JavascriptExecutor)driver).executeScript("window.scrollBy(0, 250)");
-            driver.findElement(By.xpath("//input[@value='xiaomi']/following-sibling::span")).click();
-
-            if (driver.findElement(By.xpath("//input[@value='xiaomi']")).isSelected()) {
-                System.out.println("Still selected");
-            }
-
+            driver.findElement(By.xpath("//input[@value='Авто']/following-sibling::span")).click();
+            ((JavascriptExecutor)driver).executeScript("window.scrollBy(0, 250)");
+            driver.findElement(By.xpath("//input[@value='price']/following-sibling::span")).click();
+            ((JavascriptExecutor)driver).executeScript("window.scrollBy(0, 250)");
+            driver.findElement(By.xpath("//input[@value='brand']/following-sibling::span")).click();
+            ((JavascriptExecutor)driver).executeScript("window.scrollBy(0, 250)");
+            driver.findElement(By.xpath("//input[@value='city']/following-sibling::span")).click();
+            ((JavascriptExecutor)driver).executeScript("window.scrollBy(0, 250)");
             driver.quit();
         }
     }

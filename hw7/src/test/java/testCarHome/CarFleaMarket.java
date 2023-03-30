@@ -2,7 +2,7 @@ package testCarHome;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.runtime.junit.Assertions;
+import org.assertj.core.api.Assertions;
 
 import java.util.ArrayList;
 
@@ -11,14 +11,14 @@ import static helpers.Helpers.getItems;
 
 public class CarFleaMarket {
 
-        private final String autoCarMarket = "Автобарахолка";
+        public String autoCarMarket = "Автобарахолка";
 
         @When("Наводим на пункт Автобарахолка")
         public void enterToCarFleaMarketButton(Object aClass) {
             enterToCarFleaMarketButton(getElement(autoCarMarket));
         }
 
-   @Then("Проверяем, что появилось подменю, отображающее категории - деление по ценам, по городам и марки")
+        @Then("Проверяем, что появилось подменю, отображающее категории - деление по ценам, по городам и марки")
         public void check() {
             ArrayList<String> autoItems = new ArrayList<>();
             autoItems.add("Цена с НДС");
@@ -43,8 +43,6 @@ public class CarFleaMarket {
             autoItems.add("Toyota");
             autoItems.add("Volkswagen");
 
-
-       Assertions.assertThat(getItems(autoCarMarket).containsAll(autoItems)).isTrue();
-
-    }
+            Assertions.assertThat(getItems(autoCarMarket).containsAll(autoItems)).isTrue();
+        }
 }

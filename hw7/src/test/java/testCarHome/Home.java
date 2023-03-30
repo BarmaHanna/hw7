@@ -1,17 +1,20 @@
 package testCarHome;
 
+import com.codeborne.selenide.SelenideElement;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.asynchttpclient.util.Assertions;
+import org.assertj.core.api.Assertions;
 
 import java.util.ArrayList;
+
+import static helpers.Helpers.*;
 
 public class Home {
 
         private final String home = "Дома и квартиры";
 
         @When("Наводим на пункт Дома и квартиры")
-        public void enterToHomeButton() {
+        public void enterToHomeButton(SelenideElement element) {
             enterToHomeButton(getElement(home));
         }
 
@@ -32,9 +35,7 @@ public class Home {
             homeItems.add("30 000–80 000 $");
             homeItems.add("От 80 000 $");
 
-            Assertions.assertThat(getItems(homeItems).containsAll(homeItems)).isTrue();
-
-
+            Assertions.assertThat(getItems(home).containsAll(homeItems)).isTrue();
         }
     }
 

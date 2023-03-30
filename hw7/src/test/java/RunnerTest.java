@@ -3,14 +3,15 @@ import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
-    @RunWith(Cucumber.class)
+@RunWith(Cucumber.class)
     @CucumberOptions(
-            features = "src/test/java/hw7",
-            glue = "by.barma.test",
-            tags = "@withdrawal",
-            snippets = SnippetType.CAMELCASE
+            features = "src/test/resources/scenarios",
+            glue = "testCarHome",
+            snippets = SnippetType.CAMELCASE,
+            plugin = { "pretty", "html:target/Homework7.html" }
     )
     public class RunnerTest {
     }
+
 
 
